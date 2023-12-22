@@ -22,7 +22,7 @@ const Agentie = sequelize.define('agentie', {
 });
 
 Agentie.getAgentieById = function (id) {
-    return sequelize.query('SELECT * FROM agentie WHERE id_agentie = :id', {
+    return sequelize.query('SELECT nume, email FROM agentie WHERE id_agentie = :id', {
             replacements: { id },
             type: Sequelize.QueryTypes.SELECT
         })

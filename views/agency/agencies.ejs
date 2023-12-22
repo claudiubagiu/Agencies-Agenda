@@ -1,0 +1,49 @@
+<%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Our Agencies</h1>
+
+
+                <div class="row">
+
+                    <% for (let agency of agencies) { %>
+
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3 m-0 p-0">
+                            <div class="card m-1 p-0">
+                                <a href="product_info.html">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/016/314/735/original/home-icon-free-png.png" class="card-img-top1" alt="Product 1">
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="card-title" style="height: 60px;">
+                                        <%= agency.nume %>
+                                    </h4>
+                                    <p class="card-text">
+                                        <%= agency.email %>
+                                    </p>
+                                    <div class="d-flex justify-content-around">
+                                        <a href="/agency/<%= agency.nume %>?edit=true" class="btn btn-primary">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <% } %>
+
+                </div>
+
+
+            </div>
+
+
+            <%- include('../includes/end.ejs') %>

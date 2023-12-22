@@ -3,7 +3,7 @@ const Tip = require('../models/tip');
 const Spatiu = require('../models/spatiu');
 const Oferta = require('../models/oferta');
 
-exports.getAgencies = (req, res, next) => {
+exports.getIndexPage = (req, res, next) => {
     Promise.all([
         Agentie.findAll(),
         Tip.findAll(),
@@ -23,3 +23,58 @@ exports.getAgencies = (req, res, next) => {
         })
         .catch(err => console.log(err));
 };
+
+exports.getInfoAgencies = (req, res, next) => {
+    Agentie.findAll()
+        .then(agencies => {
+            res.render('agency/info-agencies', {
+                pageTitle: 'Info Agencies',
+                agencies: agencies
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+exports.getInfoSpaces = (req, res, next) => {
+    Spatiu.findAll()
+        .then(spaces => {
+            res.render('agency/info-spaces', {
+                pageTitle: 'Info Spaces',
+                spaces: spaces
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+exports.getInfoOffers = (req, res, next) => {
+    Oferta.findAll()
+        .then(offers => {
+            res.render('agency/info-offers', {
+                pageTitle: 'Info Offers',
+                offers: offers
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+exports.getInfoTypes = (req, res, next) => {
+    Tip.findAll()
+        .then(types => {
+            res.render('agency/info-types', {
+                pageTitle: 'Info Types',
+                types: types
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+exports.getAgencies = (req, res, next) => {
+    Agentie.findAll()
+        .then(agencies => {
+            res.render('agency/agencies', {
+                pageTitle: "Agencies",
+                agencies: agencies
+            });
+        })
+        .catch(err => console.log(err));
+}

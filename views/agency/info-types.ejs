@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Types</h1>
+
+
+
+                <% if (types.length> 0) { %>
+
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id_tip</th>
+                                    <th scope="col">Denumire</th>
+                                    <th scope="col">Caracteristici</th>
+                                </tr>
+                            </thead>
+                            <% for (let type of types) { %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= type.id_tip %>
+                                        </th>
+                                        <td>
+                                            <%= type.denumire %>
+                                        </td>
+                                        <td>
+                                            <%= type.caracteristici %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have types at this moment!</h1>
+
+                        <% } %>
+
+            </div>
+
+
+            <%- include('../includes/end.ejs') %>
