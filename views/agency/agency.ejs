@@ -1,0 +1,79 @@
+<%- include('../includes/head.ejs') %>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Offers - <%= offer.nume %>
+                </h1>
+
+                <% if (offers.length> 0) { %>
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id_oferta</th>
+                                    <th scope="col">adresa</th>
+                                    <th scope="col">zona</th>
+                                    <th scope="col">suprafata</th>
+                                    <th scope="col">pret</th>
+                                    <th scope="col">vanzare</th>
+                                    <th scope="col">moneda</th>
+                                    <th scope="col">denumire</th>
+                                    <th scope="col">caracteristici</th>
+                                </tr>
+                            </thead>
+                            <% for (let offer of offers) { %>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <%= offer.id %>
+                                        </td>
+                                        <td>
+                                            <%= offer.adresa %>
+                                        </td>
+                                        <td>
+                                            <%= offer.zona %>
+                                        </td>
+                                        <td>
+                                            <%= offer.suprafata %>
+                                        </td>
+                                        <td>
+                                            <%= offer.pret %>
+                                        </td>
+                                        <td>
+                                            <%= offer.vanzare %>
+                                        </td>
+                                        <td>
+                                            <%= offer.moneda %>
+                                        </td>
+                                        <td>
+                                            <%= offer.denumire %>
+                                        </td>
+                                        <td>
+                                            <%= offer.caracteristici %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have offers at this moment!</h1>
+
+                        <% } %>
+
+                            <p>Contact: <%= offer.email %></p>
+
+
+            </div>
+
+
+            <%- include('../includes/end.ejs') %>

@@ -2,6 +2,7 @@ const Agentie = require('../models/agentie');
 const Tip = require('../models/tip');
 const Spatiu = require('../models/spatiu');
 const Oferta = require('../models/oferta');
+const ViewOferte = require('../models/viewoferte');
 
 exports.getIndexPage = (req, res, next) => {
     Promise.all([
@@ -77,4 +78,17 @@ exports.getAgencies = (req, res, next) => {
             });
         })
         .catch(err => console.log(err));
-}
+};
+
+exports.getAgency = (req, res, next) => {
+    const agencyId = req.params.agencyId;
+    ViewOferte.findAll({ where: { id_agentie: agencyId } })
+        .then(offers => {
+            res.render('agency/agency', {
+                pageTitle: 'Agency Details',
+                offers: offers,
+                offer: offers[0]
+            });
+        })
+        .catch(err => console.log(err));
+};

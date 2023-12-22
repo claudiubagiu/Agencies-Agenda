@@ -16,4 +16,6 @@ router.get('/info-types', agenciesController.getInfoTypes);
 
 router.get('/agencies', agenciesController.getAgencies);
 
+router.get('/agency/:agencyId', agenciesController.getAgency);
+
 module.exports = router;
