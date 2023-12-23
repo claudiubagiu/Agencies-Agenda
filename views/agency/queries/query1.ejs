@@ -1,0 +1,60 @@
+<%- include('../../includes/head.ejs') %>
+
+    <body>
+        <%- include('../../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Types</h1>
+
+
+                <% if (spaces.length> 0) { %>
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id_spatiu</th>
+                                    <th scope="col">Adresa</th>
+                                    <th scope="col">Zona</th>
+                                    <th scope="col">Suprafata</th>
+                                    <th scope="col">id_tip</th>
+                                </tr>
+                            </thead>
+                            <% for (let space of spaces) { %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= space.id_spatiu %>
+                                        </th>
+                                        <td>
+                                            <%= space.adresa %>
+                                        </td>
+                                        <td>
+                                            <%= space.zona %>
+                                        </td>
+                                        <td>
+                                            <%= space.suprafata %>
+                                        </td>
+                                        <td>
+                                            <%= space.id_tip %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have spaces at this moment!</h1>
+
+                        <% } %>
+
+            </div>
+
+
+            <%- include('../../includes/end.ejs') %>

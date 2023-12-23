@@ -1,0 +1,42 @@
+<%- include('../../includes/head.ejs') %>
+
+    <body>
+        <%- include('../../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Our Agencies</h1>
+
+                <% if (agencies.length> 0) { %>
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nume</th>
+                                </tr>
+                            </thead>
+                            <% for (let agency of agencies) { %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= agency.nume %>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have agencies at this moment!</h1>
+
+                        <% } %>
+
+            </div>
+
+
+            <%- include('../../includes/end.ejs') %>

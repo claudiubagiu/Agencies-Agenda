@@ -1,0 +1,53 @@
+<%- include('../../includes/head.ejs') %>
+
+    <body>
+        <%- include('../../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Offers</h1>
+
+
+                <% if (offers.length> 0) { %>
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Zona</th>
+                                    <th scope="col">Pret minim inchiriere</th>
+                                    <th scope="col">Pret maxim inchiriere</th>
+                                </tr>
+                            </thead>
+                            <% for (let offer of offers) { %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= offer.zona %>
+                                        </th>
+                                        <td>
+                                            <%= offer.pret_minim_inchiriere %>
+                                        </td>
+                                        <td>
+                                            <%= offer.pret_maxim_inchiriere %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have offers at this moment!</h1>
+
+                    <% } %>
+
+
+            </div>
+
+
+            <%- include('../../includes/end.ejs') %>

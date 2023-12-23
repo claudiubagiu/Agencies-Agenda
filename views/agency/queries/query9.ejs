@@ -1,0 +1,69 @@
+<%- include('../../includes/head.ejs') %>
+
+    <body>
+        <%- include('../../includes/navigation.ejs') %>
+
+            <div class="container">
+                <h1 class="">Offers</h1>
+
+
+                <% if (exceptions.length> 0) { %>
+
+                    <div class="row">
+
+                        <table class="table table-bordered table-dark border-success"
+                            style="border-radius: 10px; overflow: hidden;">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id_agentie</th>
+                                    <th scope="col">id_spatiu</th>
+                                    <th scope="col">Vanzare</th>
+                                    <th scope="col">Pret</th>
+                                    <th scope="col">Moneda</th>
+                                    <th scope="col">Natura exceptiei</th>
+                                </tr>
+                            </thead>
+                            <% for (let exception of exceptions) { %>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= exception.id_agentie %>
+                                        </th>
+                                        <td>
+                                            <%= exception.id_spatiu %>
+                                        </td>
+                                        <td>
+                                            <%= exception.vanzare %>
+                                        </td>
+                                        <td>
+                                            <%= exception.pret %>
+                                        </td>
+                                        <td>
+                                            <%= exception.moneda %>
+                                        </td>
+                                        <td>
+                                            <%= exception.natura_exceptiei %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <% } %>
+                        </table>
+
+                    </div>
+
+
+                    <% } else { %>
+
+                        <h1>We don't have exceptions at this moment!</h1>
+
+                        <% } %>
+
+                            <form action="/query9" method="POST">
+                                <button class="btn btn-primary" type="submit">Refresh</button>
+                            </form>
+
+
+            </div>
+
+
+            <%- include('../../includes/end.ejs') %>

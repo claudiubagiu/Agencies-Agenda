@@ -46,4 +46,12 @@ Agentie.getAgentieById3 = function () {
         });
 };
 
+Agentie.ex5b = function () {
+    return sequelize.query('SELECT ag1.nume FROM agentie ag1 JOIN oferta of1 ON ag1.id_agentie = of1.id_agentie WHERE ((of1.pret) IN ( SELECT of2.pret FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'EUR\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'EUR\') OR ((of1.pret) IN ( SELECT of2.pret FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'RON\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'RON\') OR ((of1.pret) IN ( SELECT of2.pret FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'USD\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'USD\') OR ((of1.pret) IN ( SELECT of2.pret / 5 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'RON\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'EUR\') OR ((of1.pret) IN ( SELECT of2.pret * 5 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'EUR\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'RON\') OR ((of1.pret) IN ( SELECT (of2.pret / 5) * 107 / 100 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'RON\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'USD\') OR ((of1.pret) IN ( SELECT of2.pret * 100 / 107 * 5 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'USD\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'RON\') OR ((of1.pret) IN ( SELECT of2.pret * 100 / 107 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'USD\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'EUR\') OR ((of1.pret) IN ( SELECT of2.pret * 107 / 100 FROM oferta of2 WHERE of2.id_spatiu = 1 AND of2.id_agentie = 1 AND of2.moneda = \'EUR\' ) AND ag1.id_agentie <> 1 AND of1.moneda = \'USD\');')
+        .then(([result, metadata]) => {
+            return result;
+        })
+        .catch(err => console.log(err));
+}
+
 module.exports = Agentie;
