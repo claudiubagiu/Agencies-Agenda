@@ -22,7 +22,7 @@ app.use(agencyRoutes);
 sequelize
     .sync()
     .then(result => {
-        app.listen(3000);
+        app.listen(3000/*, '192.168.0.52'*/);
     })
     .catch(err => {
         console.log(err);
